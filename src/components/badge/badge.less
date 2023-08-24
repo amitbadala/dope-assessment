@@ -1,0 +1,60 @@
+// Variables (if you want to make colors and other properties easily customizable)
+@pill-success-bg: #b4eda0;
+@pill-success-dot: #6bc167;
+@pill-warning-bg: #ffebb6;
+@pill-warning-dot: #ffc400;
+@pill-danger-bg: #ffd5d1;
+@pill-danger-dot: #ff4436;
+
+.badge {
+  align-items: center;
+  font-weight: bold;
+  font-size: 11px;
+  display: inline-block;
+  height: 100%;
+  white-space: nowrap;
+  width: auto;
+  position: relative;
+  border-radius: 100px;
+  line-height: 1.25rem;
+  overflow: hidden;
+  padding: 0px 12px 0px 20px;
+  text-overflow: ellipsis;
+  color: #595959;
+  word-break: break-word;
+
+  &:before {
+    border-radius: 50%;
+    content: "";
+    height: 10px;
+    left: 6px;
+    margin-top: -5px;
+    position: absolute;
+    top: 50%;
+    width: 10px;
+  }
+
+  &-success {
+    background: @pill-success-bg;
+
+    &:before {
+      background: @pill-success-dot;
+    }
+  }
+
+  &-warning {
+    background: @pill-warning-bg;
+
+    &:before {
+      background: @pill-warning-dot;
+    }
+  }
+
+  &-danger {
+    background: @pill-danger-bg;
+
+    &:before {
+      background: @pill-danger-dot;
+    }
+  }
+}
