@@ -1,0 +1,78 @@
+// Variables
+@table-border-color: #dee2e6;
+@table-hover-color: rgba(0, 0, 0, 0.075);
+@table-striped-color: rgba(0, 0, 0, 0.05);
+@table-primary-color: #b8daff;
+
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  background-color: transparent;
+  border-collapse: collapse;
+
+  th,
+  td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid @table-border-color;
+  }
+
+  thead {
+    th {
+      vertical-align: bottom;
+      border-bottom: 2px solid @table-border-color;
+    }
+  }
+
+  &-striped {
+    tbody {
+      tr:nth-of-type(odd) {
+        background-color: @table-striped-color;
+      }
+    }
+  }
+
+  &-hover {
+    tbody {
+      tr:hover {
+        background-color: @table-hover-color;
+      }
+    }
+  }
+
+  &-bordered {
+    border: 1px solid @table-border-color;
+
+    th,
+    td {
+      border: 1px solid @table-border-color;
+    }
+
+    thead {
+      th,
+      td {
+        border-bottom-width: 2px;
+      }
+    }
+  }
+
+  &-primary,
+  &-primary > th,
+  &-primary > td {
+    background-color: @table-primary-color;
+  }
+
+  // Add other color variations here...
+
+  &-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+
+    > .table-bordered {
+      border: 0;
+    }
+  }
+}
