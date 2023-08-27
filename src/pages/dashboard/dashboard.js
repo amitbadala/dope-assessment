@@ -4,14 +4,20 @@ import { fetchTableData, chartData } from "../../service/dashboard-service";
 import { BarChart } from "../../components/chart/bar-chart";
 import StatsCard from "../../components/stats/stats-card";
 import SampleForm from "../../components/form/form";
+import { columnsConfig } from "../../constant/app-usage-config";
 import "./dashboard.less";
 
 const Dashboard = () => {
   const [tableData, setTableData] = useState([]);
+
   useEffect(() => {
-    let result = fetchTableData();
-    setTableData(result);
+    getTableData();
   }, []);
+
+  const getTableData = async () => {
+    let result = await fetchTableData();
+    setTableData(result);
+  };
 
   return (
     <>
@@ -22,7 +28,11 @@ const Dashboard = () => {
           </div>
           <BarChart data={chartData} />
         </div>
-        <Table className="table table-bordered" data={tableData} />
+        <Table
+          className="table table-bordered"
+          columns={columnsConfig}
+          data={tableData}
+        />
       </div>
     </>
   );

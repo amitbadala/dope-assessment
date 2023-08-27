@@ -3,7 +3,8 @@ import React from "react";
 import "./badge.less";
 
 const Badge = ({ label, type = "default" }) => {
-  return <span className={`badge badge-${type}`}>{label}</span>;
+  const smallCaseType = type.toLowerCase();
+  return <span className={`badge badge-${smallCaseType}`}>{label}</span>;
 };
 
 export default Badge;

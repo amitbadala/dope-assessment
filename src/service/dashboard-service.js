@@ -1,12 +1,14 @@
 import Badge from "../components/badge/badge";
+import { sleep } from "./../utils";
 
-const fetchTableData = () => {
+const fetchTableData = async () => {
+  await sleep(5000);
   const sampleData = [
     {
       id: "0",
       name: "Naruto",
       location: "konoha",
-      health: <Badge type="success" label="Healthy" />,
+      health: "Healthy",
       ip: "abcd",
       volume: 1000000000, // in bytes
     },
@@ -14,7 +16,7 @@ const fetchTableData = () => {
       id: "0",
       name: "Sasuke",
       location: "Orochimaru Hidden Village",
-      health: <Badge type="danger" label="Error" />,
+      health: "Error",
       ip: "abcd",
       volume: 300000000, // in bytes
     },

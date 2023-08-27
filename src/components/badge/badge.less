@@ -1,10 +1,10 @@
 // Variables (if you want to make colors and other properties easily customizable)
-@pill-success-bg: #b4eda0;
-@pill-success-dot: #6bc167;
+@pill-healthy-bg: #b4eda0;
+@pill-healthy-dot: #6bc167;
 @pill-warning-bg: #ffebb6;
 @pill-warning-dot: #ffc400;
-@pill-danger-bg: #ffd5d1;
-@pill-danger-dot: #ff4436;
+@pill-error-bg: #ffd5d1;
+@pill-error-dot: #ff4436;
 
 .badge {
   align-items: center;
@@ -34,11 +34,11 @@
     width: 10px;
   }
 
-  &-success {
-    background: @pill-success-bg;
+  &-healthy {
+    background: @pill-healthy-bg;
 
     &:before {
-      background: @pill-success-dot;
+      background: @pill-healthy-dot;
     }
   }
 
@@ -50,11 +50,11 @@
     }
   }
 
-  &-danger {
-    background: @pill-danger-bg;
+  &-error {
+    background: @pill-error-bg;
 
     &:before {
-      background: @pill-danger-dot;
+      background: @pill-error-dot;
     }
   }
 }

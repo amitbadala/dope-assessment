@@ -1,29 +1,33 @@
 import React from "react";
 import "./table.less";
 
-const DataTable = ({ data, ...rest }) => {
-  if (!data || data.length === 0) return <p>No data available</p>;
-
-  const headers = Object.keys(data[0]);
-
+const DataTable = ({ columns, data, ...rest }) => {
   return (
     <table {...rest}>
       <thead>
         <tr>
-          {headers.map((header) => (
-            <th key={header}>{header}</th>
+          {Object.keys(columns).map((key) => (
+            <th key={key}>{columns[key].title}</th>
           ))}
         </tr>
       </thead>
-      <tbody>
-        {data.map((row, rowIndex) => (
-          <tr key={rowIndex}>
-            {headers.map((header) => (
-              <td key={header}>{row[header]}</td>
-            ))}
-          </tr>
-        ))}
-      </tbody>
+      {data.length ? (
+        <tbody>
+          {data.map((row, rowIndex) => (
+            <tr key={rowIndex}>
+              {Object.keys(columns).map((header) =>
+                columns[header]?.render ? (
+                  <td key={header}>{columns[header].render(row[header])}</td>
+                ) : (
+                  <td key={header}>{row[header]}</td>
+                )
+              )}
+            </tr>
+          ))}
+        </tbody>
+      ) : (
+        <tbody style={{ height: 100 }}></tbody>
+      )}
     </table>
   );
 };
