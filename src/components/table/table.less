@@ -1,5 +1,5 @@
 // Variables
-@table-border-color: #dee2e6;
+@table-border-color: #5a5a5a;
 @table-hover-color: rgba(0, 0, 0, 0.075);
 @table-striped-color: rgba(0, 0, 0, 0.05);
 @table-primary-color: #b8daff;
@@ -8,8 +8,10 @@
   width: 100%;
   max-width: 100%;
   margin-bottom: 1rem;
-  background-color: transparent;
+  background-color: #181818;
   border-collapse: collapse;
+  border-radius: 5px;
+  color: #fff;
 
   th,
   td {
@@ -21,7 +23,8 @@
   thead {
     th {
       vertical-align: bottom;
-      border-bottom: 2px solid @table-border-color;
+      border-bottom: 1px solid @table-border-color;
+      background-color: #000;
     }
   }
 
@@ -52,7 +55,7 @@
     thead {
       th,
       td {
-        border-bottom-width: 2px;
+        border-bottom-width: 1px;
       }
     }
   }
