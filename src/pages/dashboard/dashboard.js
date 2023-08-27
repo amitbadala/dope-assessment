@@ -5,19 +5,21 @@ import { BarChart } from "../../components/chart/bar-chart";
 import StatsCard from "../../components/stats/stats-card";
 import SampleForm from "../../components/form/form";
 import { columnsConfig } from "../../constant/app-usage-config";
+import { useQuery } from "react-query";
 import "./dashboard.less";
 
 const Dashboard = () => {
   const [tableData, setTableData] = useState([]);
+  const { data, error, isLoading } = useQuery("tableData", fetchTableData);
 
-  useEffect(() => {
-    getTableData();
-  }, []);
+  //   useEffect(() => {
+  //     getTableData();
+  //   }, []);
 
-  const getTableData = async () => {
-    let result = await fetchTableData();
-    setTableData(result);
-  };
+  //   const getTableData = async () => {
+  //     let result = await fetchTableData();
+  //     setTableData(result);
+  //   };
 
   return (
     <>
@@ -31,7 +33,9 @@ const Dashboard = () => {
         <Table
           className="table table-bordered"
           columns={columnsConfig}
-          data={tableData}
+          isLoading={isLoading}
+          error={error}
+          data={data}
         />
       </div>
     </>

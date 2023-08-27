@@ -1,15 +1,8 @@
-import React, { useState } from "react";
-import "./Spinner.css";
+import React from "react";
+import "./spinner.less";
 
-function Spinner() {
-  const [spinning, setSpinning] = useState(true);
-
-  return (
-    <div>
-      <div className={`spinner ${spinning ? "" : "paused"}`}></div>
-      <button onClick={() => setSpinning(!spinning)}>Toggle Spinner</button>
-    </div>
-  );
+function Spinner({ ...rest }) {
+  return <div {...rest} className="spinner"></div>;
 }
 
 export default Spinner;

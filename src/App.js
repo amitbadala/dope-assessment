@@ -1,12 +1,17 @@
 import logo from "./logo.svg";
 import "./App.css";
 import Dashboard from "./pages/dashboard/dashboard";
+import { QueryClient, QueryClientProvider } from "react-query";
+
+const queryClient = new QueryClient();
 
 function App() {
   return (
-    <div className="App">
-      <Dashboard />
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <div className="App">
+        <Dashboard />
+      </div>
+    </QueryClientProvider>
   );
 }
 
