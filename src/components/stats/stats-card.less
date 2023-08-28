@@ -31,3 +31,24 @@ p {
   letter-spacing: 1px;
   line-height: 24px;
 }
+
+.upwards {
+  font-size: 70px;
+  position: absolute;
+  right: 0px;
+  color: #13a877;
+  top: 0px;
+  animation: moveUpwards 2s infinite; /* 1s duration, infinite loop */
+}
+
+@keyframes moveUpwards {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

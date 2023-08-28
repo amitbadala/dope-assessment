@@ -7,6 +7,7 @@ function StatsCard({ totalUsers }) {
     <Card style={{ position: "relative" }}>
       <div className="stats-content">
         <h1 className="highlight">{totalUsers} %</h1>
+        <span className="upwards">↑</span>
         <p className="subtitle">
           Increase in total number of new users with{" "}
           <strong>volume greater than 200000</strong>
