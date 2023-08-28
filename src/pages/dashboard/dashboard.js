@@ -6,12 +6,18 @@ import SampleForm from "../../components/form/form";
 import { columnsConfig } from "../../constant/app-usage-config";
 import { useQuery } from "react-query";
 import "./dashboard.less";
+import { Icon } from "@iconify/react";
 
 const Dashboard = () => {
   const { data, error, isLoading } = useQuery("tableData", fetchTableData);
 
   return (
     <div className="dashboard-container">
+      <img
+        className="brand"
+        src="https://uploads-ssl.webflow.com/623381c2c01066b228a1670b/623cc8153e74296ac6fbeaf0_logo-vertical.svg"
+        alt="logo"
+      />
       <div className="grid-50">
         <div className="flex flex-column space-between">
           <StatsCard totalUsers={34} /> <SampleForm />
@@ -19,7 +25,7 @@ const Dashboard = () => {
         <BarChart data={chartData} />
       </div>
       <div className="table-header">
-        <h4>App Usage</h4>
+        <h4>🚀 App Usage</h4>
         <div>
           <input placeholder="Search Data" type="text"></input>
         </div>

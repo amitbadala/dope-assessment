@@ -40,6 +40,7 @@
   },
   "devDependencies": {
     "@craco/craco": "^7.1.0",
+    "@iconify/react": "^4.1.1",
     "craco-less": "^3.0.1",
     "less": "^4.2.0",
     "less-loader": "^11.1.3"

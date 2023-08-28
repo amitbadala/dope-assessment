@@ -1,8 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import Spinner from "../spinner/spinner";
 import "./table.less";
 
-const DataTable = ({ columns, data, isLoading, ...rest }) => {
+const DataTable = ({ columns, data = [], isLoading, ...rest }) => {
+  const [sortColumn, setSortColumn] = useState(null);
+  const [sortDirection, setSortDirection] = useState("asc"); // 'asc' for ascending, 'desc' for descending
+
+  const sortedData = [...data].sort((a, b) => {
+    if (a[sortColumn] < b[sortColumn]) {
+      return sortDirection === "asc" ? -1 : 1;
+    }
+    if (a[sortColumn] > b[sortColumn]) {
+      return sortDirection === "asc" ? 1 : -1;
+    }
+    return 0;
+  });
+
+  const handleSort = (columnKey) => {
+    if (sortColumn === columnKey) {
+      // Toggle sort direction
+      setSortDirection((prev) => (prev === "asc" ? "desc" : "asc"));
+    } else {
+      setSortColumn(columnKey);
+      setSortDirection("asc");
+    }
+  };
+
   const TableRow = ({ row }) => {
     return (
       <tr>
@@ -22,7 +45,10 @@ const DataTable = ({ columns, data, isLoading, ...rest }) => {
       <thead>
         <tr>
           {Object.keys(columns).map((key) => (
-            <th key={key}>{columns[key].title}</th>
+            <th key={key} onClick={() => handleSort(key)}>
+              {columns[key].title}
+              {sortColumn === key && (sortDirection === "asc" ? " ↑" : " ↓")}
+            </th>
           ))}
         </tr>
       </thead>
@@ -37,9 +63,9 @@ const DataTable = ({ columns, data, isLoading, ...rest }) => {
             </td>
           </tr>
         </tbody>
-      ) : data.length ? (
+      ) : sortedData.length ? (
         <tbody>
-          {data.map((row) => (
+          {sortedData.map((row) => (
             <TableRow key={row.id} row={row} />
           ))}
         </tbody>

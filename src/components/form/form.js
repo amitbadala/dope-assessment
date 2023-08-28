@@ -29,7 +29,7 @@ function SampleForm() {
 
   return (
     <Card>
-      <h5 className="title">Access Form</h5>
+      <h5 className="title">📌 Access Form</h5>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="field1">App Name</label>
