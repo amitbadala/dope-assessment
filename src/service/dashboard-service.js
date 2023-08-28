@@ -1,11 +1,10 @@
-import Badge from "../components/badge/badge";
 import { sleep } from "./../utils";
 
 const fetchTableData = async () => {
   await sleep(5000);
   const sampleData = [
     {
-      id: "0",
+      id: "1",
       name: "Naruto",
       location: "konoha",
       health: "Healthy",
@@ -13,7 +12,7 @@ const fetchTableData = async () => {
       volume: 1000000000, // in bytes
     },
     {
-      id: "0",
+      id: "2",
       name: "Sasuke",
       location: "Orochimaru Hidden Village",
       health: "Error",

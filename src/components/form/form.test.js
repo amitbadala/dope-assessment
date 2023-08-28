@@ -18,6 +18,4 @@ describe("SampleForm", () => {
     expect(appNameInput.value).toBe("Test App");
     expect(volumeInput.value).toBe("123");
   });
-
-  // You can add more tests, like checking if the form submits correctly, if the clear button works, etc.
 });
