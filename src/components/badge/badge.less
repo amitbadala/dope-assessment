@@ -1,8 +1,8 @@
 // Variables (if you want to make colors and other properties easily customizable)
 @pill-healthy-bg: #b4eda0;
 @pill-healthy-dot: #6bc167;
-@pill-warning-bg: #ffebb6;
-@pill-warning-dot: #ffc400;
+@pill-disabled-bg: #ffebb6;
+@pill-disabled-dot: #ffc400;
 @pill-error-bg: #ffd5d1;
 @pill-error-dot: #ff4436;
 
@@ -42,11 +42,11 @@
     }
   }
 
-  &-warning {
-    background: @pill-warning-bg;
+  &-disabled {
+    background: @pill-disabled-bg;
 
     &:before {
-      background: @pill-warning-dot;
+      background: @pill-disabled-dot;
     }
   }
 

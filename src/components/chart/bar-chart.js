@@ -1,4 +1,3 @@
-// components/BarChart.js
 import { Bar } from "react-chartjs-2";
 import { CategoryScale } from "chart.js";
 import Chart from "chart.js/auto";
@@ -6,11 +5,8 @@ import "./bar-chart.less";
 
 Chart.register(CategoryScale);
 
-const colors = [
-  "#13A877", // Color for the first bar
-  "#DE9E6A", // Color for the second bar
-  "#CF6262", // Color for the third bar
-];
+// Color for bars
+const colors = ["#13A877", "#DE9E6A", "#CF6262"];
 
 export const BarChart = ({ data }) => {
   const chartData = {

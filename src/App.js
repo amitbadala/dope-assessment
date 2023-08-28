@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import Dashboard from "./pages/dashboard/dashboard";
 import { QueryClient, QueryClientProvider } from "react-query";

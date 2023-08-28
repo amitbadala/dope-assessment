@@ -6,7 +6,6 @@ import SampleForm from "../../components/form/form";
 import { columnsConfig } from "../../constant/app-usage-config";
 import { useQuery } from "react-query";
 import "./dashboard.less";
-import { Icon } from "@iconify/react";
 
 const Dashboard = () => {
   const { data, error, isLoading } = useQuery("tableData", fetchTableData);
