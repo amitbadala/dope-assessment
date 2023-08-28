@@ -8,13 +8,15 @@ Chart.register(CategoryScale);
 // Color for bars
 const colors = ["#13A877", "#DE9E6A", "#CF6262"];
 
-export const BarChart = ({ data }) => {
+export const BarChart = ({ data = [] }) => {
+  const topFive = data.sort((a, b) => b.volume - a.volume).slice(0, 5);
+
   const chartData = {
-    labels: data.map((item) => item.userGain),
+    labels: topFive.map((item) => item.name),
     datasets: [
       {
         label: "App Usage Volume",
-        data: data.map((item) => item.userGain),
+        data: topFive.map((item) => item.volume),
         backgroundColor: colors,
         borderColor: colors.map((color) => color.replace("0.6", "1")), // Assuming you're using rgba colors
         borderWidth: 1,
@@ -34,6 +36,8 @@ export const BarChart = ({ data }) => {
         },
       },
       y: {
+        min: 930, // Minimum value for y-axis
+        max: 1000, // Maximum value for y-axis
         ticks: {
           color: "white", // Color for y-axis labels
         },
@@ -50,7 +54,9 @@ export const BarChart = ({ data }) => {
 
   return (
     <div className="chart-container">
-      <h2 style={{ textAlign: "center", color: "white" }}>Bar Chart</h2>
+      <h2 style={{ textAlign: "center", color: "white" }}>
+        Top 5 Users by Volume
+      </h2>
       <Bar data={chartData} options={chartOptions} />;
     </div>
   );

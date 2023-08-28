@@ -1,26 +1,27 @@
 import { sleep } from "./../utils";
+import { faker } from "@faker-js/faker";
+
+const generateFakeData = (numEntries) => {
+  const data = [];
+  for (let i = 0; i < numEntries; i++) {
+    const entry = {
+      id: i + 1,
+      name: faker.person.fullName(),
+      location: faker.location.city(),
+      health: faker.helpers.arrayElement(["Healthy", "Error", "Disabled"]),
+      ip: faker.internet.ipv4(),
+      volume: faker.number.int({ max: 1000 }),
+    };
+    data.push(entry);
+  }
+
+  return data;
+};
 
 const fetchTableData = async () => {
   await sleep(5000);
-  const sampleData = [
-    {
-      id: "1",
-      name: "Naruto",
-      location: "konoha",
-      health: "Healthy",
-      ip: "abcd",
-      volume: 1000000000, // in bytes
-    },
-    {
-      id: "2",
-      name: "Sasuke",
-      location: "Orochimaru Hidden Village",
-      health: "Error",
-      ip: "abcd",
-      volume: 300000000, // in bytes
-    },
-  ];
-  return sampleData;
+  let fakeData = generateFakeData(100);
+  return fakeData;
 };
 
 const chartData = [

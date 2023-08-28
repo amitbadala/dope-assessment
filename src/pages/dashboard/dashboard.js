@@ -1,5 +1,5 @@
 import Table from "../../components/table/table";
-import { fetchTableData, chartData } from "../../service/dashboard-service";
+import { fetchTableData } from "../../service/dashboard-service";
 import { BarChart } from "../../components/chart/bar-chart";
 import StatsCard from "../../components/stats/stats-card";
 import SampleForm from "../../components/form/form";
@@ -9,7 +9,6 @@ import "./dashboard.less";
 
 const Dashboard = () => {
   const { data, error, isLoading } = useQuery("tableData", fetchTableData);
-
   return (
     <div className="dashboard-container">
       <img
@@ -21,7 +20,7 @@ const Dashboard = () => {
         <div className="flex flex-column space-between">
           <StatsCard totalUsers={34} /> <SampleForm />
         </div>
-        <BarChart data={chartData} />
+        <BarChart data={data} />
       </div>
       <div className="table-header">
         <h4>🚀 App Usage</h4>
