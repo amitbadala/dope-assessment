@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./form.less";
 import Card from "../card/card";
 
@@ -9,10 +9,6 @@ const initialFormData = {
 
 function SampleForm() {
   const [formData, setFormData] = useState(initialFormData);
-
-  useEffect(() => {
-    console.log(formData, "formData");
-  }, [formData]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -32,25 +28,29 @@ function SampleForm() {
       <h5 className="title">📌 Access Form</h5>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="field1">App Name</label>
+          <label htmlFor="appNameField">App Name</label>
           <input
             type="text"
+            id="appNameField"
             name="appName"
             value={formData.appName}
             onChange={handleChange}
             className="form-control"
             aria-required="true"
+            placeholder="eg: facebook"
           />
         </div>
         <div className="form-group">
-          <label htmlFor="field2">Volume</label>
+          <label htmlFor="volumeField">Volume</label>
           <input
             type="number"
+            id="volumeField"
             name="volume"
             value={formData.volume}
             onChange={handleChange}
             className="form-control"
             aria-required="true"
+            placeholder="eg: 25000"
           />
         </div>
         <div className="form-group actions">
